@@ -23,6 +23,24 @@
     @media(max-width:470px){.wrap{padding:0 17px}.course-grid,.team-grid{grid-template-columns:1fr}.hero h1{font-size:49px}.art{margin-left:-20px;transform:scale(.7);transform-origin:center}.fact{padding:16px 19px}.fact strong{font-size:24px}.cert{padding:42px 14px}.cert-foot{font-size:11px}}
     @media print{body *{visibility:hidden!important}.cert,.cert *{visibility:visible!important}.cert{display:block!important;position:absolute;left:0;top:0;width:100%;margin:0;max-width:none;min-height:95vh;outline:2px solid #af924e;box-shadow:none}html,body{background:white!important}@page{size:A4 landscape;margin:7mm}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+    /* LOGIQ PRACTICE V2 — câu hỏi nhiều bước */
+    .practice-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:19px 0 12px;font-size:12px;font-weight:800;color:#537266}
+    .question-pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}
+    .question-dot{min-width:36px;height:36px;border:1px solid #c9dbd2;background:#fff;border-radius:10px;font-size:12px;font-weight:850;color:#526b68}
+    .question-dot.current{background:#15332e;color:#fff;border-color:#15332e}
+    .question-dot.done:not(.current){background:#dcf5e7;color:#087d62;border-color:#97d5bd}
+    .scenario .scenario-count{display:inline-block;background:#e0ede5;color:#2c6c59;font-size:11px;font-weight:900;letter-spacing:.9px;padding:4px 9px;border-radius:20px;margin-bottom:7px}
+    .scenario .question-text{font-size:16px;font-weight:720;line-height:1.65}
+    .choice:disabled{cursor:default;opacity:.84}
+    .choice:disabled.correct{opacity:1}
+    .response{display:none;border:1px solid transparent;border-radius:11px;padding:12px 13px;line-height:1.6;font-weight:600}
+    .response.show{display:block}.response.success{background:#def5e8;border-color:#aedec8;color:#12664f}
+    .response.error{background:#fff3e5;border-color:#f2d4ae;color:#8b5425}
+    .question-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px}
+    .question-nav .btn{padding:10px 14px;font-size:13px}
+    .practice-congrats{padding:12px 14px;margin-top:13px;background:#e6f8ef;color:#0b735b;border:1px solid #bce6d1;border-radius:11px;font-size:13px;font-weight:700}
+    @media(max-width:470px){.question-nav .btn{flex:1}.practice-meta{align-items:flex-start}.lab-panel{padding:19px}}
   </style>
 </head>
 <body>
@@ -52,7 +70,7 @@
       <article class="course-card"><div class="course-top"><span class="course-no">SESSION 03</span><span class="course-icon">📚</span></div><h3>Đánh giá thông tin học thuật</h3><p>Kiểm tra tác giả, nguồn, số liệu, bằng chứng và cách dùng AI có trách nhiệm.</p><div class="course-end"><span>⏱ 50 phút</span><button data-open-lesson="2">Bắt đầu ↗</button></div></article>
       <article class="course-card"><div class="course-top"><span class="course-no">SESSION 04</span><span class="course-icon">🎙️</span></div><h3>Lập luận & bảo vệ quan điểm</h3><p>Luận điểm, luận cứ, bằng chứng; ngụy biện và tranh biện mang tính xây dựng.</p><div class="course-end"><span>⏱ 50 phút</span><button data-open-lesson="3">Bắt đầu ↗</button></div></article>
     </div></div></section>
-    <section class="section" id="thuc-hanh"><div class="wrap"><div class="section-heading"><span class="eyebrow">03 / Interactive lab</span><h2>Học xong, thử ngay.</h2><p>Chọn một buổi học để xem các ý chính và trả lời câu hỏi tình huống. Kết quả được lưu trên chính trình duyệt bạn đang dùng.</p></div><div class="lab-grid"><aside class="lesson-list" id="lessonList" aria-label="Chọn bài học"></aside><div class="lab-panel" id="lessonPanel" aria-live="polite"></div></div><div class="progress-block" aria-live="polite"><div id="progressText">Đã hoàn thành 0/4 hoạt động</div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div></div></section>
+    <section class="section" id="thuc-hanh"><div class="wrap"><div class="section-heading"><span class="eyebrow">03 / Interactive lab</span><h2>Học xong, thử ngay.</h2><p>Mỗi buổi gồm 6 câu hỏi thực hành (24 câu tất cả) với tình huống gần gũi sinh viên. Trả lời đúng để mở lời giải thích; tiến độ lưu trong trình duyệt này.</p></div><div class="lab-grid"><aside class="lesson-list" id="lessonList" aria-label="Chọn bài học"></aside><div class="lab-panel" id="lessonPanel" aria-live="polite"></div></div><div class="progress-block" aria-live="polite"><div id="progressText">Đã trả lời đúng 0/24 câu · Hoàn thành 0/4 buổi</div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div></div></section>
     <section class="section test" id="kiem-tra"><div class="wrap"><div class="section-heading"><span class="eyebrow">04 / Final challenge</span><h2>Bạn đã sẵn sàng nghĩ như một người phản biện?</h2><p>Làm bài kiểm tra nhanh gồm 6 câu trắc nghiệm. Đạt ít nhất 5/6 câu để mở chứng nhận trải nghiệm LOGIQ.</p></div><div class="test-grid"><aside class="test-summary"><h3>LOGIQ CHECK ✳</h3><p>Kiểm tra các khái niệm cốt lõi qua các tình huống gần gũi với sinh viên.</p><div class="test-pills"><span>6 câu hỏi</span><span>Không giới hạn thời gian</span><span>Có thể làm lại</span></div><p style="margin-top:27px;font-size:12px">Lưu ý: Đây là bài quiz minh họa của website dự án, không phải chứng chỉ học thuật chính thức.</p></aside><div class="quiz"><form id="quizForm"><div class="quiz-questions" id="quizQuestions"></div><div class="quiz-submit"><button class="btn btn-dark" type="submit">Nộp bài & xem kết quả ↗</button><button type="button" class="btn btn-outline" id="resetQuiz">Làm lại</button></div></form><div id="quizResult" class="result" role="status"></div><div class="cert-input" id="certInput"><input id="participantName" type="text" maxlength="65" autocomplete="name" placeholder="Nhập tên để hiển thị trên chứng nhận" aria-label="Tên trên chứng nhận"><button class="btn btn-dark" id="createCert" type="button">Tạo chứng nhận</button></div></div></div><div class="cert" id="certificate" aria-label="Chứng nhận trải nghiệm LOGIQ"><div class="cert-logo">✳ LOGIQ</div><p style="text-transform:uppercase;letter-spacing:4px;font-size:11px">Beyond 5 · SSA101</p><div class="cert-title">Chứng nhận trải nghiệm</div><p>Ghi nhận sự tham gia và hoàn thành bài kiểm tra trực tuyến</p><div class="cert-name" id="certificateName"></div><p>Đã hoàn thành thử thách kiến thức<br><strong>TƯ DUY PHẢN BIỆN – THINK BEYOND LIMITS</strong></p><div class="cert-foot">LOGIQ PROJECT · BEYOND 5 <span style="margin:0 15px">✦</span> <span id="certificateDate"></span></div></div><div id="printControls" style="display:none;text-align:center"><button class="btn btn-primary" id="printCert">In / Lưu chứng nhận thành PDF ↗</button></div></div></section>
     <section class="section" id="nhom"><div class="wrap"><div class="section-heading"><span class="eyebrow">05 / Meet the team</span><h2>Beyond 5 — đội ngũ LOGIQ.</h2><p>Dự án kỹ năng học tập SSA101, lớp AI2113. Nội dung được xây dựng với định hướng học qua trải nghiệm, thảo luận và phản hồi đồng đẳng.</p></div><div class="team-grid"><div class="person"><div class="avatar">MQ</div><strong>Nguyễn Minh Quang</strong><p>Project Manager</p></div><div class="person"><div class="avatar">GK</div><strong>Phạm Gia Khiêm</strong><p>Research Lead</p></div><div class="person"><div class="avatar">MĐ</div><strong>Lê Minh Đức</strong><p>Content & Strategy Lead</p></div><div class="person"><div class="avatar">TH</div><strong>Trần Thanh Hưng</strong><p>Design & Product Lead</p></div><div class="person"><div class="avatar">AĐ</div><strong>Trương Anh Đức</strong><p>Communication Lead</p></div></div><div class="feedback"><div><h3>Góp ý để LOGIQ tốt hơn ✉</h3><p>Nhóm có thể gắn Google Forms khảo sát tại đây để nhận nhận xét sau khóa học. Bản mẫu hiện chưa kết nối biểu mẫu thu thập dữ liệu.</p></div><button class="btn btn-dark" id="feedbackBtn">Mở phiếu phản hồi ↗</button></div><div class="resources"><strong>Tài liệu tham khảo trong bản kế hoạch:</strong> <a href="https://courses.lumenlearning.com/lumencollegesuccessxtraining/chapter/critical-thinking-skills/" target="_blank" rel="noopener noreferrer">Lumen Learning</a> · <a href="https://openstax.org/details/books/college-success" target="_blank" rel="noopener noreferrer">OpenStax – College Success</a></div></div></section>
   </main><footer class="footer"><div class="wrap"><span><strong>LOGIQ.</strong> Think Beyond Limits. · Dự án học tập phi lợi nhuận của Beyond 5</span><span>© 2026 LOGIQ Project · Website minh họa</span></div></footer><div id="toast" role="status" aria-live="polite"></div>
@@ -60,11 +78,347 @@
     // TÙY CHỈNH: Dán liên kết Google Forms thật của nhóm vào giữa hai dấu nháy.
     const FEEDBACK_FORM_URL = '';
     const lessons = [
-      {title:'Nhận diện thông tin & tư duy phản biện',duration:'45 phút',lead:'Phân biệt điều có thể kiểm chứng với ý kiến hoặc giả định cá nhân.',points:['Sự thật (fact): có thể đối chiếu bằng chứng khách quan.','Ý kiến (opinion): đánh giá, cảm nhận hoặc quan điểm của cá nhân.','Giả định (assumption): điều được tạm cho là đúng nhưng cần xác minh.','Đặt câu hỏi 5W1H: Who, What, When, Where, Why, How.'],q:'Một bạn nói: “Sinh viên nào dùng AI cũng lười suy nghĩ”. Bạn nên phản hồi thế nào?',options:['Đồng ý vì câu nói có vẻ hợp lý.','Hỏi bạn ấy dựa vào bằng chứng nào và có trường hợp ngoại lệ không.','Phản bác rằng ai dùng AI cũng giỏi.'],answer:1,explain:'Nhận định “ai cũng” thường cần bằng chứng đầy đủ. Câu hỏi phản biện làm rõ phạm vi và căn cứ của kết luận.'},
-      {title:'Kiểm chứng thông tin trên Internet',duration:'45 phút',lead:'Xử lý bài đăng gây sốc, tin đồn hoặc nội dung bị cắt khỏi ngữ cảnh.',points:['Xác định ai đứng sau bài đăng, thời điểm và nguồn gốc thông tin.','Đối chiếu ít nhất một nguồn độc lập đáng tin cậy.','Kiểm tra ảnh, tiêu đề giật gân và ngữ cảnh của nội dung.','Không mặc định nội dung do AI tạo ra là chính xác.'],q:'Bạn thấy bài viết “90% sinh viên tăng GPA nhờ một bí quyết” nhưng không dẫn nguồn. Hành động hợp lý nhất?',options:['Chia sẻ ngay cho bạn bè.','Tin vì tỷ lệ 90% rất thuyết phục.','Tìm nghiên cứu gốc và kiểm tra cách thu thập số liệu.'],answer:2,explain:'Con số cụ thể không tự chứng minh độ tin cậy. Cần tìm nguồn, phương pháp và bối cảnh của thống kê.'},
-      {title:'Đánh giá thông tin học thuật',duration:'50 phút',lead:'Biết lựa chọn tài liệu có căn cứ và thẩm định câu trả lời do AI cung cấp.',points:['Kiểm tra tác giả, cơ quan xuất bản và thời gian công bố.','Đọc câu hỏi nghiên cứu, dữ liệu, phương pháp và giới hạn kết luận.','Phân biệt bằng chứng nghiên cứu với nhận xét cá nhân.','Với trích dẫn do AI gợi ý, luôn kiểm tra tài liệu gốc có tồn tại.'],q:'AI đưa ra tên một nghiên cứu nghe rất thuyết phục. Bạn nên làm gì trước khi trích dẫn?',options:['Trích dẫn trực tiếp vì AI thường có kiến thức rộng.','Tìm tài liệu gốc, đối chiếu tác giả, nơi xuất bản và nội dung.','Chỉ kiểm tra xem tiêu đề có hay không.'],answer:1,explain:'AI có thể tạo ra thông tin hoặc nguồn trích dẫn không chính xác. Hãy đối chiếu trực tiếp với tài liệu gốc.'},
-      {title:'Lập luận & bảo vệ quan điểm',duration:'50 phút',lead:'Trình bày quan điểm rõ ràng, có luận cứ và tôn trọng đối thoại.',points:['Luận điểm: điều bạn muốn người nghe chấp nhận.','Luận cứ: lý do dùng để hỗ trợ luận điểm.','Bằng chứng: dữ liệu hoặc ví dụ xác thực cho luận cứ.','Tránh ngụy biện công kích cá nhân và khái quát hóa vội vàng.'],q:'Khi người khác phản đối ý kiến của bạn, cách phản biện tốt nhất là gì?',options:['Tập trung vào lý lẽ và đề nghị làm rõ bằng chứng.','Chê khả năng của người đưa ra ý kiến.','Nói to hơn để giành phần thắng.'],answer:0,explain:'Tranh luận có chất lượng phản hồi vào lập luận, không công kích con người.'}
-    ];
+  {
+    "title": "Nhận diện thông tin & tư duy phản biện",
+    "duration": "45 phút",
+    "lead": "Phân biệt sự thật, ý kiến, giả định và tập đặt câu hỏi trước khi kết luận.",
+    "points": [
+      "Sự thật (fact): có thể kiểm chứng bằng thông tin, số liệu hoặc quan sát đáng tin cậy.",
+      "Ý kiến (opinion): nhận xét hoặc đánh giá mang tính cá nhân.",
+      "Giả định (assumption): điều được tạm cho là đúng, cần xem xét thêm.",
+      "5W1H giúp đặt câu hỏi: Who, What, When, Where, Why, How."
+    ],
+    "questions": [
+      {
+        "q": "Một bạn nói: “Sinh viên nào dùng AI cũng lười suy nghĩ”. Cách phản hồi nào mang tính phản biện nhất?",
+        "options": [
+          "Đồng ý vì nhận xét này nghe có vẻ hợp lý.",
+          "Hỏi bạn ấy dựa vào bằng chứng nào và có trường hợp ngoại lệ không.",
+          "Khẳng định tất cả sinh viên dùng AI đều học giỏi.",
+          "Chuyển chủ đề để khỏi phải tranh luận."
+        ],
+        "answer": 1,
+        "explain": "Nhận định “ai cũng” cần bằng chứng đủ rộng. Hỏi về căn cứ và ngoại lệ giúp kiểm tra việc khái quát quá mức.",
+        "hint": "Cân nhắc cách kiểm tra phạm vi và cơ sở của một khẳng định tuyệt đối."
+      },
+      {
+        "q": "Trong bốn phát biểu sau, đâu là một ý kiến cá nhân chứ không phải sự thật có thể kiểm chứng trực tiếp?",
+        "options": [
+          "Một tuần có bảy ngày.",
+          "Nước đóng băng ở khoảng 0°C tại áp suất khí quyển tiêu chuẩn.",
+          "Học buổi sáng là cách học thú vị nhất.",
+          "Trường đại học có lịch học theo từng học kỳ."
+        ],
+        "answer": 2,
+        "explain": "“Thú vị nhất” là đánh giá chủ quan, có thể khác nhau giữa người học; các phát biểu còn lại có thể đối chiếu thông tin hoặc điều kiện khách quan.",
+        "hint": "Tìm phát biểu chứa mức độ yêu thích, đánh giá cá nhân."
+      },
+      {
+        "q": "Bạn đọc một bài đăng khẳng định “mọi người đều tập trung tốt hơn khi nghe nhạc”. Giả định nào cần được kiểm chứng?",
+        "options": [
+          "Âm nhạc có nhiều thể loại.",
+          "Mọi người đều có phản ứng tập trung giống nhau khi nghe nhạc.",
+          "Có người dùng tai nghe khi học.",
+          "Sinh viên có thể học ở thư viện."
+        ],
+        "answer": 1,
+        "explain": "Bài đăng giả định phản ứng của tất cả mọi người là như nhau, trong khi hiệu quả có thể phụ thuộc từng người, nhiệm vụ và loại âm thanh.",
+        "hint": "Xác định điều người viết đang coi là đúng với mọi người nhưng chưa chứng minh."
+      },
+      {
+        "q": "Trong mô hình 5W1H, câu hỏi “Thông tin này được công bố khi nào?” thuộc nhóm nào?",
+        "options": [
+          "Why",
+          "Where",
+          "When",
+          "How"
+        ],
+        "answer": 2,
+        "explain": "When tập trung vào thời điểm xảy ra hoặc công bố thông tin; yếu tố thời gian có thể ảnh hưởng đến tính còn phù hợp của nguồn.",
+        "hint": "Nhớ lại nhóm câu hỏi dùng để xác định mốc thời gian."
+      },
+      {
+        "q": "Bạn chỉ tìm những bài viết ủng hộ quan điểm có sẵn và bỏ qua các bài phản đối. Thói quen này dễ dẫn đến vấn đề gì?",
+        "options": [
+          "Thiên kiến xác nhận (confirmation bias).",
+          "Trích dẫn đúng chuẩn.",
+          "Đánh giá đa chiều.",
+          "Đặt câu hỏi trung lập."
+        ],
+        "answer": 0,
+        "explain": "Thiên kiến xác nhận là xu hướng ưu tiên thông tin phù hợp với niềm tin ban đầu và phớt lờ bằng chứng trái chiều.",
+        "hint": "Xem xét liệu bạn đang tìm sự thật hay chỉ tìm thông tin củng cố ý nghĩ ban đầu."
+      },
+      {
+        "q": "Trong buổi thảo luận, bạn không đồng ý với kết luận của một thành viên. Câu nói nào thể hiện tư duy phản biện xây dựng?",
+        "options": [
+          "“Cậu sai rồi, khỏi giải thích.”",
+          "“Mọi người đều nghĩ thế nên cứ làm vậy.”",
+          "“Cậu có thể cho biết dữ liệu nào dẫn đến kết luận đó không?”",
+          "“Đừng đặt câu hỏi nữa vì mất thời gian.”"
+        ],
+        "answer": 2,
+        "explain": "Tập trung vào dữ liệu và cách lập luận giúp nhóm hiểu vấn đề mà không công kích cá nhân.",
+        "hint": "Ưu tiên cách nói khuyến khích người khác đưa ra lý do và bằng chứng."
+      }
+    ]
+  },
+  {
+    "title": "Kiểm chứng thông tin trên Internet",
+    "duration": "45 phút",
+    "lead": "Rèn kỹ năng truy nguồn, kiểm tra ngữ cảnh và đối chiếu tin giả, clickbait.",
+    "points": [
+      "Xác định ai đăng, thời điểm đăng và nguồn gốc của thông tin.",
+      "Ưu tiên nguồn có tác giả, phương pháp và khả năng kiểm chứng rõ ràng.",
+      "Đối chiếu với các nguồn độc lập thay vì chỉ nhìn lượt chia sẻ.",
+      "Chú ý ảnh cũ, nội dung cắt ghép và thông tin do AI tạo ra."
+    ],
+    "questions": [
+      {
+        "q": "Bạn thấy bài viết “90% sinh viên tăng GPA nhờ một bí quyết” nhưng không dẫn nguồn. Hành động hợp lý nhất là gì?",
+        "options": [
+          "Chia sẻ ngay vì con số 90% rất ấn tượng.",
+          "Tin vì bài đăng có nhiều lượt thích.",
+          "Tìm nghiên cứu gốc và kiểm tra cách thu thập số liệu.",
+          "Đợi vài ngày rồi xem bình luận có đông không."
+        ],
+        "answer": 2,
+        "explain": "Một tỉ lệ phần trăm không tự bảo đảm độ tin cậy; cần kiểm tra nghiên cứu gốc, cỡ mẫu, cách đo và ngữ cảnh.",
+        "hint": "Hãy nghĩ đến cách kiểm tra nguồn của một thống kê."
+      },
+      {
+        "q": "Một bài đăng nói “trường thông báo nghỉ toàn bộ lớp học ngày mai” nhưng không có đường dẫn. Bạn nên làm gì trước?",
+        "options": [
+          "Kiểm tra kênh thông báo chính thức của trường và ngày đăng.",
+          "Chụp màn hình và gửi lên tất cả nhóm lớp.",
+          "Tin ngay vì bạn thân đã chia sẻ.",
+          "Dựa vào số bình luận để xác nhận."
+        ],
+        "answer": 0,
+        "explain": "Thông báo liên quan lịch học cần được đối chiếu ở kênh chính thức và đúng thời điểm; chia sẻ không xác minh có thể gây hiểu lầm.",
+        "hint": "Cân nhắc nơi nào có trách nhiệm phát hành thông báo thật."
+      },
+      {
+        "q": "Một bức ảnh lũ lụt đang lan truyền được ghi là chụp hôm nay. Điều gì giúp xác minh bối cảnh tốt nhất?",
+        "options": [
+          "Chỉ đọc bình luận có nhiều lượt thích.",
+          "Kiểm tra nguồn ảnh ban đầu, thời gian và địa điểm xuất hiện.",
+          "Tin vì ảnh trông rõ nét.",
+          "Tin vì tiêu đề có địa danh cụ thể."
+        ],
+        "answer": 1,
+        "explain": "Ảnh có thể là ảnh cũ hoặc được gán bối cảnh khác. Nguồn gốc, thời gian và địa điểm giúp đánh giá tính xác thực của chú thích.",
+        "hint": "Một hình ảnh thật vẫn có thể đi kèm chú thích sai."
+      },
+      {
+        "q": "Hai website đăng cùng một lời đồn, nhưng cả hai đều sao chép từ một bài viết không nêu nguồn. Điều đó có nghĩa gì?",
+        "options": [
+          "Đây là hai nguồn độc lập xác nhận tin.",
+          "Lời đồn chắc chắn đúng vì xuất hiện hai lần.",
+          "Chưa có sự kiểm chứng độc lập chỉ nhờ hai bài đăng đó.",
+          "Thông tin đúng vì nội dung trùng nhau."
+        ],
+        "answer": 2,
+        "explain": "Hai bản sao của cùng một nguồn không phải là hai chứng cứ độc lập. Cần tìm thông tin xác nhận từ nguồn khác có cơ sở riêng.",
+        "hint": "Hãy phân biệt số trang đăng lại với số nguồn thực sự kiểm chứng."
+      },
+      {
+        "q": "Tiêu đề nào có dấu hiệu “clickbait” rõ nhất?",
+        "options": [
+          "“Lịch đăng ký học phần học kỳ mới đã công bố”.",
+          "“Kết quả khảo sát 200 sinh viên về thời gian tự học”.",
+          "“Đọc bài này ngay, sự thật gây sốc khiến ai cũng choáng!”",
+          "“Hướng dẫn sử dụng thư viện trường năm 2026”."
+        ],
+        "answer": 2,
+        "explain": "Tiêu đề giật gân tạo tò mò và cảm xúc mạnh mà không cung cấp nội dung cụ thể là dấu hiệu thường gặp của clickbait.",
+        "hint": "Xem tiêu đề nào cố kích thích cảm xúc thay vì nêu nội dung có thể kiểm chứng."
+      },
+      {
+        "q": "Một video lan truyền được cho là do AI tạo ra. Phương án kiểm chứng phù hợp nhất là gì?",
+        "options": [
+          "Kết luận giả ngay vì hình ảnh có vẻ lạ.",
+          "Kết luận thật vì giọng nói giống người thật.",
+          "Chỉ dựa vào một công cụ nhận diện AI rồi khẳng định.",
+          "Kiểm tra nguồn phát hành, ngữ cảnh và chứng cứ độc lập trước khi kết luận."
+        ],
+        "answer": 3,
+        "explain": "Không có dấu hiệu hình ảnh hay công cụ nhận diện đơn lẻ nào đủ bảo đảm kết luận; cần phối hợp truy nguồn và đối chiếu bằng chứng.",
+        "hint": "Tìm cách tránh dựa vào chỉ một dấu hiệu hoặc một công cụ."
+      }
+    ]
+  },
+  {
+    "title": "Đánh giá thông tin học thuật",
+    "duration": "50 phút",
+    "lead": "Thẩm định tác giả, dữ liệu, giới hạn nghiên cứu và nguồn trích dẫn do AI gợi ý.",
+    "points": [
+      "Kiểm tra tác giả, đơn vị xuất bản, ngày công bố và chủ đề nghiên cứu.",
+      "Đọc phương pháp, cỡ mẫu và giới hạn trước khi sử dụng kết luận.",
+      "Phân biệt bằng chứng nghiên cứu với suy luận hoặc ý kiến.",
+      "Với tài liệu do AI giới thiệu, luôn tìm và đọc bản gốc."
+    ],
+    "questions": [
+      {
+        "q": "AI đưa ra tên một nghiên cứu nghe rất thuyết phục. Bạn nên làm gì trước khi trích dẫn?",
+        "options": [
+          "Trích dẫn ngay vì AI đã tổng hợp sẵn.",
+          "Tìm tài liệu gốc, đối chiếu tác giả, nơi xuất bản và nội dung.",
+          "Chỉ kiểm tra tiêu đề có giống chủ đề không.",
+          "Ghi tên AI vào danh mục tài liệu thay vì kiểm tra."
+        ],
+        "answer": 1,
+        "explain": "AI có thể tạo trích dẫn không tồn tại hoặc diễn giải sai. Tìm bài gốc giúp xác minh tính chính xác và sự phù hợp.",
+        "hint": "Hãy xem bạn có thể tự truy tìm thông tin gốc hay không."
+      },
+      {
+        "q": "Bạn muốn biết một bài nghiên cứu có đáng tin để đưa vào báo cáo. Tập hợp yếu tố nào nên được xem xét?",
+        "options": [
+          "Số lượt chia sẻ và độ dài tiêu đề.",
+          "Màu sắc trang web và số hình minh họa.",
+          "Tác giả, nơi công bố, phương pháp và dữ liệu.",
+          "Số bình luận đồng tình dưới bài viết."
+        ],
+        "answer": 2,
+        "explain": "Uy tín học thuật cần được đánh giá bằng tác giả, nguồn xuất bản, phương pháp và chứng cứ, không phải hình thức hay mức độ lan truyền.",
+        "hint": "Hãy tập trung vào năng lực kiểm chứng nội dung nghiên cứu."
+      },
+      {
+        "q": "Một khảo sát về thói quen học tập chỉ có 18 người trong cùng một lớp. Kết luận nào thận trọng nhất?",
+        "options": [
+          "Có thể mô tả nhóm được hỏi, nhưng chưa đủ cơ sở khái quát cho mọi sinh viên.",
+          "Kết quả đại diện cho toàn bộ sinh viên Việt Nam.",
+          "Cứ có tỉ lệ phần trăm là chắc chắn tổng quát được.",
+          "Không thể sử dụng kết quả để mô tả lớp đó."
+        ],
+        "answer": 0,
+        "explain": "Mẫu nhỏ và cùng một lớp có thể thiếu tính đại diện. Có thể rút nhận xét về nhóm khảo sát nhưng cần thận trọng khi suy rộng.",
+        "hint": "Xem sự khác biệt giữa đặc điểm của mẫu khảo sát và toàn bộ quần thể."
+      },
+      {
+        "q": "Một nghiên cứu tìm thấy mối liên hệ giữa giờ ngủ và điểm số. Điều gì chưa thể suy ra chỉ từ mối tương quan ấy?",
+        "options": [
+          "Có thể có sự liên hệ giữa hai biến.",
+          "Cần tìm hiểu các yếu tố ảnh hưởng khác.",
+          "Ngủ lâu hơn chắc chắn là nguyên nhân làm điểm số tăng.",
+          "Kết quả cần được diễn giải trong phạm vi thiết kế nghiên cứu."
+        ],
+        "answer": 2,
+        "explain": "Tương quan không tự chứng minh quan hệ nhân quả; có thể tồn tại yếu tố gây nhiễu hoặc chiều tác động khác.",
+        "hint": "Phân biệt hai biến thay đổi cùng nhau với một biến gây ra biến kia."
+      },
+      {
+        "q": "Bạn thấy bản tóm tắt bài nghiên cứu trên mạng diễn giải kết luận mạnh hơn bản gốc. Bạn nên làm gì?",
+        "options": [
+          "Dùng bản tóm tắt vì ngắn gọn hơn.",
+          "Đọc bài gốc, nhất là phần kết quả và giới hạn nghiên cứu.",
+          "Dùng cách diễn giải mạnh hơn để bài thuyết trình hấp dẫn.",
+          "Bỏ phần dẫn nguồn vì đã có người tóm tắt."
+        ],
+        "answer": 1,
+        "explain": "Bài gốc cho phép đối chiếu phát biểu với kết quả và giới hạn thật sự; bản tóm tắt có thể làm sai lệch mức độ chắc chắn.",
+        "hint": "Ưu tiên phần nào cho biết chính xác tác giả đã tìm thấy và chưa chứng minh được điều gì?"
+      },
+      {
+        "q": "Bài báo học thuật ghi “nghiên cứu còn hạn chế vì mẫu khảo sát chỉ ở một trường”. Cách dùng phù hợp nhất là gì?",
+        "options": [
+          "Lược bỏ hạn chế để người nghe tin hơn.",
+          "Đổi cách diễn đạt thành “đúng với tất cả sinh viên”.",
+          "Trích dẫn kết quả kèm phạm vi và giới hạn của mẫu.",
+          "Chỉ trích dẫn tiêu đề bài báo."
+        ],
+        "answer": 2,
+        "explain": "Trình bày đúng phạm vi kết luận và hạn chế giúp dùng bằng chứng trung thực, tránh khái quát vượt dữ liệu.",
+        "hint": "Cần cân đối giữa điều nghiên cứu cho thấy và điều chưa có cơ sở kết luận."
+      }
+    ]
+  },
+  {
+    "title": "Lập luận & bảo vệ quan điểm",
+    "duration": "50 phút",
+    "lead": "Xây dựng lập luận có bằng chứng và tranh biện văn minh, không công kích cá nhân.",
+    "points": [
+      "Luận điểm: khẳng định chính muốn bảo vệ.",
+      "Luận cứ: lý do giải thích vì sao luận điểm có cơ sở.",
+      "Bằng chứng: dữ liệu, quan sát hoặc tài liệu hỗ trợ cho luận cứ.",
+      "Phản biện vào nội dung lập luận và cân nhắc ý kiến đối lập."
+    ],
+    "questions": [
+      {
+        "q": "Khi người khác phản đối ý kiến của bạn, cách phản biện tốt nhất là gì?",
+        "options": [
+          "Tập trung vào lý lẽ và đề nghị làm rõ bằng chứng.",
+          "Chê năng lực người đưa ra ý kiến.",
+          "Nói to hơn để giành phần thắng.",
+          "Không cho người kia trình bày hết ý."
+        ],
+        "answer": 0,
+        "explain": "Phản biện hiệu quả bàn về lý lẽ và bằng chứng, đồng thời tôn trọng người đối thoại.",
+        "hint": "Hãy chọn phản ứng giúp cả hai bên hiểu lập luận hơn."
+      },
+      {
+        "q": "Trong phát biểu “Nên có khu tự học yên tĩnh vì tiếng ồn khiến nhiều bạn khó tập trung”, đâu là luận điểm chính?",
+        "options": [
+          "Có nhiều sinh viên đến thư viện.",
+          "Nên có khu tự học yên tĩnh.",
+          "Tiếng ồn có thể ảnh hưởng tập trung.",
+          "Một số bạn học vào buổi tối."
+        ],
+        "answer": 1,
+        "explain": "“Nên có khu tự học yên tĩnh” là điều người nói muốn người nghe chấp nhận; phần sau cung cấp lý do.",
+        "hint": "Tìm ý tưởng chính đang được đề xuất hoặc bảo vệ."
+      },
+      {
+        "q": "Trong tranh luận, một bạn nói: “Đừng nghe Minh vì Minh học không giỏi”. Đây là lỗi lập luận nào?",
+        "options": [
+          "Đưa ra bằng chứng thực nghiệm.",
+          "Cân nhắc nhiều góc nhìn.",
+          "Công kích cá nhân (ad hominem).",
+          "Làm rõ định nghĩa."
+        ],
+        "answer": 2,
+        "explain": "Đánh giá con người thay vì xem xét lý do và bằng chứng của họ là ngụy biện công kích cá nhân.",
+        "hint": "Xem lời phản bác đang nhắm đến con người hay nội dung của lập luận."
+      },
+      {
+        "q": "Ai đó nói: “Hoặc cấm hoàn toàn AI trong học tập, hoặc sinh viên sẽ không biết tự nghĩ”. Câu này có thể mắc lỗi gì?",
+        "options": [
+          "Ngụy biện lưỡng phân giả (false dilemma).",
+          "Đối chiếu nhiều nguồn.",
+          "Dẫn chứng bằng số liệu.",
+          "Phân tích nguyên nhân theo nhiều khả năng."
+        ],
+        "answer": 0,
+        "explain": "Câu nói chỉ nêu hai lựa chọn cực đoan và bỏ qua các phương án trung gian, như sử dụng AI có hướng dẫn và kiểm chứng.",
+        "hint": "Hãy xem tình huống có thực sự chỉ tồn tại đúng hai lựa chọn hay không."
+      },
+      {
+        "q": "Một người phản bác bạn bằng cách bóp méo quan điểm của bạn thành một ý cực đoan hơn. Đây là dạng lỗi gì?",
+        "options": [
+          "Khái quát hóa từ mẫu lớn.",
+          "Đánh giá dựa trên bằng chứng.",
+          "Nhận diện giả định.",
+          "Ngụy biện người rơm (straw man)."
+        ],
+        "answer": 3,
+        "explain": "Ngụy biện người rơm là diễn giải sai hoặc cường điệu quan điểm đối phương rồi phản bác phiên bản bị bóp méo đó.",
+        "hint": "Quan sát xem quan điểm ban đầu có đang bị thay bằng một phiên bản dễ phản bác hơn."
+      },
+      {
+        "q": "Trong một cuộc tranh biện nhóm, bạn vừa nhận được chứng cứ đáng tin cậy trái với luận điểm của mình. Bạn nên làm gì?",
+        "options": [
+          "Bỏ qua vì đội mình phải thắng.",
+          "Thừa nhận chứng cứ, đánh giá lại hoặc điều chỉnh lập luận.",
+          "Chuyển sang nhận xét tiêu cực về người trình bày.",
+          "Lặp lại luận điểm ban đầu nhiều lần."
+        ],
+        "answer": 1,
+        "explain": "Sẵn sàng điều chỉnh quan điểm khi có bằng chứng tốt hơn là một phần cốt lõi của tư duy phản biện.",
+        "hint": "Phản biện hướng tới kết luận có cơ sở, không chỉ là bảo vệ vị trí ban đầu."
+      }
+    ]
+  }
+];
     const quizData = [
       {q:'Đâu là một nhận định có thể kiểm chứng như sự thật?',a:['“Môn AI là môn thú vị nhất.”','“Một tuần có bảy ngày.”','“Ai cũng nên học lúc nửa đêm.”'],correct:1},
       {q:'Trong 5W1H, câu hỏi “Ai là tác giả?” thuộc nhóm nào?',a:['Who','When','How'],correct:0},
@@ -73,25 +427,85 @@
       {q:'“Một người dùng AI học kém, vậy mọi người dùng AI đều học kém” là lỗi gì?',a:['Bằng chứng đủ mạnh.','Khái quát hóa vội vàng.','Lập luận dựa trên nhiều nguồn.'],correct:1},
       {q:'Một lập luận thuyết phục thường cần gì?',a:['Luận điểm, lý do và bằng chứng.','Giọng nói thật lớn.','Nhiều người đồng ý mà không cần căn cứ.'],correct:0}
     ];
+    // Lưu riêng phiên bản mới: kết quả 1 câu trong bản trước không được coi là hoàn thành 6 câu.
+    const PRACTICE_KEY = 'logiq-practice-v2';
     let selectedLesson=0;
-    let done=[];
-    try {done=JSON.parse(localStorage.getItem('logiq-progress')||'[]');if(!Array.isArray(done))done=[];}catch(e){done=[];}
+    let selectedQuestion=0;
+    let practiceState=lessons.map(l=>l.questions.map(()=>false));
+    try {
+      const saved=JSON.parse(localStorage.getItem(PRACTICE_KEY)||'null');
+      if(Array.isArray(saved)) practiceState=practiceState.map((row,i)=>row.map((_,j)=>saved?.[i]?.[j]===true));
+    } catch(e) { /* Chế độ riêng tư có thể không cho lưu. */ }
     const el=id=>document.getElementById(id);
     function toast(message){el('toast').textContent=message;el('toast').classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el('toast').classList.remove('show'),4200)}
-    function renderProgress(){let count=done.filter((v,i)=>v===true&&i<4).length;el('progressText').textContent=`Đã hoàn thành ${count}/4 hoạt động thực hành`;el('progressFill').style.width=(count*25)+'%'}
-    function renderLesson(){
-      el('lessonList').innerHTML=lessons.map((l,i)=>`<button type="button" class="lesson-item ${i===selectedLesson?'active':''}" data-lesson="${i}" aria-pressed="${i===selectedLesson}"><span class="num">${done[i]?'✓':'0'+(i+1)}</span><span><strong>Buổi ${i+1}: ${l.title}</strong><small>⏱ ${l.duration} ${done[i]?' · Hoàn thành ✓':''}</small></span></button>`).join('');
-      const l=lessons[selectedLesson];el('lessonPanel').innerHTML=`<span class="eyebrow">Buổi ${selectedLesson+1} / Thực hành</span><h3>${l.title}</h3><p class="panel-intro">${l.lead}</p><ul class="concepts">${l.points.map(p=>`<li>${p}</li>`).join('')}</ul><div class="scenario"><strong>✳ TÌNH HUỐNG THỰC HÀNH</strong><p>${l.q}</p><div class="choices">${l.options.map((o,i)=>`<button type="button" class="choice" data-answer="${i}">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div id="lessonResponse" class="response" aria-live="polite"></div></div>`;
-      el('lessonList').querySelectorAll('[data-lesson]').forEach(b=>b.addEventListener('click',()=>{selectedLesson=Number(b.dataset.lesson);renderLesson()}));
-      el('lessonPanel').querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>{
-        const n=Number(b.dataset.answer),correct=n===l.answer;
-        el('lessonPanel').querySelectorAll('[data-answer]').forEach(x=>{x.classList.remove('correct','wrong');if(Number(x.dataset.answer)===l.answer)x.classList.add('correct')});
-        if(!correct)b.classList.add('wrong');
-        el('lessonResponse').textContent=(correct?'✓ Chính xác! ':'Thử một góc nhìn khác. ')+l.explain;
-        if(correct){done[selectedLesson]=true;try{localStorage.setItem('logiq-progress',JSON.stringify(done))}catch(e){}renderProgress();const label=el('lessonList').querySelector(`[data-lesson="${selectedLesson}"]`);if(label)label.querySelector('.num').textContent='✓'}
-      }));renderProgress();
+    function savePractice(){try{localStorage.setItem(PRACTICE_KEY,JSON.stringify(practiceState))}catch(e){}}
+    function completedLesson(i){return practiceState[i].every(Boolean)}
+    function renderProgress(){
+      const total=lessons.reduce((sum,l)=>sum+l.questions.length,0);
+      const correct=practiceState.reduce((sum,row)=>sum+row.filter(Boolean).length,0);
+      const complete=practiceState.filter(row=>row.every(Boolean)).length;
+      el('progressText').textContent=`Đã trả lời đúng ${correct}/${total} câu · Hoàn thành ${complete}/4 buổi`;
+      el('progressFill').style.width=(correct/total*100)+'%';
     }
-    document.querySelectorAll('[data-open-lesson]').forEach(b=>b.addEventListener('click',()=>{selectedLesson=Number(b.dataset.openLesson);renderLesson();el('thuc-hanh').scrollIntoView({behavior:'smooth'})}));
+    function renderLesson(){
+      el('lessonList').innerHTML=lessons.map((l,i)=>{
+        const count=practiceState[i].filter(Boolean).length;
+        const completed=completedLesson(i);
+        return `<button type="button" class="lesson-item ${i===selectedLesson?'active':''}" data-lesson="${i}" aria-pressed="${i===selectedLesson}"><span class="num">${completed?'✓':'0'+(i+1)}</span><span><strong>Buổi ${i+1}: ${l.title}</strong><small>⏱ ${l.duration} · ${count}/${l.questions.length} câu đúng ${completed?'✓':''}</small></span></button>`;
+      }).join('');
+      const l=lessons[selectedLesson];
+      const q=l.questions[selectedQuestion];
+      const solved=practiceState[selectedLesson][selectedQuestion];
+      const count=practiceState[selectedLesson].filter(Boolean).length;
+      const last=selectedQuestion===l.questions.length-1;
+      el('lessonPanel').innerHTML=`
+        <span class="eyebrow">Buổi ${selectedLesson+1} / Thực hành</span>
+        <h3>${l.title}</h3><p class="panel-intro">${l.lead}</p>
+        <ul class="concepts">${l.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+        <div class="practice-meta"><span>TIẾN ĐỘ BUỔI HỌC: ${count}/${l.questions.length} CÂU ĐÚNG</span><span>${completedLesson(selectedLesson)?'✓ Đã hoàn thành':'Câu '+(selectedQuestion+1)+' / '+l.questions.length}</span></div>
+        <nav class="question-pills" aria-label="Chọn câu hỏi thực hành">${l.questions.map((_,i)=>`<button type="button" class="question-dot ${i===selectedQuestion?'current':''} ${practiceState[selectedLesson][i]?'done':''}" data-question="${i}" aria-label="Câu ${i+1}${practiceState[selectedLesson][i]?', đã làm đúng':''}" aria-current="${i===selectedQuestion?'step':'false'}">${practiceState[selectedLesson][i]?'✓':(i+1)}</button>`).join('')}</nav>
+        <div class="scenario"><span class="scenario-count">CÂU HỎI ${selectedQuestion+1} / ${l.questions.length}</span><p class="question-text">${q.q}</p>
+          <div class="choices">${q.options.map((o,i)=>`<button type="button" class="choice ${solved&&i===q.answer?'correct':''}" data-answer="${i}" ${solved?'disabled':''}>${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div>
+          <div id="lessonResponse" class="response ${solved?'show success':''}" role="status" aria-live="polite">${solved?'✓ Chính xác! '+q.explain:''}</div>
+        </div>
+        ${completedLesson(selectedLesson)?'<div class="practice-congrats">🎉 Bạn đã làm đúng cả 6 câu của buổi học này. Có thể chọn buổi khác hoặc chuyển sang kiểm tra tổng kết.</div>':''}
+        <div class="question-nav">
+          <button type="button" class="btn btn-outline" id="prevQuestion" ${selectedQuestion===0?'disabled':''}>← Câu trước</button>
+          ${last?'<a class="btn btn-dark" href="#kiem-tra">Kiểm tra tổng kết ↗</a>':'<button type="button" class="btn btn-dark" id="nextQuestion">Câu tiếp theo →</button>'}
+        </div>`;
+      el('lessonList').querySelectorAll('[data-lesson]').forEach(b=>b.addEventListener('click',()=>{
+        selectedLesson=Number(b.dataset.lesson);
+        const firstUnsolved=practiceState[selectedLesson].findIndex(v=>!v);
+        selectedQuestion=firstUnsolved===-1?0:firstUnsolved;
+        renderLesson();
+      }));
+      el('lessonPanel').querySelectorAll('[data-question]').forEach(b=>b.addEventListener('click',()=>{selectedQuestion=Number(b.dataset.question);renderLesson()}));
+      el('lessonPanel').querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>{
+        if(practiceState[selectedLesson][selectedQuestion])return;
+        const chosen=Number(b.dataset.answer);
+        if(chosen===q.answer){
+          practiceState[selectedLesson][selectedQuestion]=true;
+          savePractice();
+          renderLesson();
+        } else {
+          b.classList.add('wrong');
+          const response=el('lessonResponse');
+          response.className='response show error';
+          response.textContent='Chưa chính xác. Gợi ý: '+q.hint+' Hãy thử lựa chọn khác.';
+        }
+      }));
+      const prev=el('prevQuestion'),next=el('nextQuestion');
+      if(prev)prev.addEventListener('click',()=>{selectedQuestion--;renderLesson()});
+      if(next)next.addEventListener('click',()=>{selectedQuestion++;renderLesson()});
+      renderProgress();
+    }
+    document.querySelectorAll('[data-open-lesson]').forEach(b=>b.addEventListener('click',()=>{
+      selectedLesson=Number(b.dataset.openLesson);
+      const firstUnsolved=practiceState[selectedLesson].findIndex(v=>!v);
+      selectedQuestion=firstUnsolved===-1?0:firstUnsolved;
+      renderLesson();
+      el('thuc-hanh').scrollIntoView({behavior:'smooth'});
+    }));
     function renderQuiz(){el('quizQuestions').innerHTML=quizData.map((q,i)=>`<div class="quiz-question"><strong>${i+1}. ${q.q}</strong><div class="quiz-options">${q.a.map((a,j)=>`<label><input type="radio" name="q${i}" value="${j}"> <span>${a}</span></label>`).join('')}</div></div>`).join('')}
     el('quizForm').addEventListener('submit',e=>{e.preventDefault();let score=0,unanswered=0;const review=[];quizData.forEach((q,i)=>{let choice=el('quizForm').querySelector(`input[name=q${i}]:checked`);if(!choice){unanswered++;return}if(Number(choice.value)===q.correct)score++;else review.push(i+1)});if(unanswered){toast(`Bạn còn ${unanswered} câu chưa chọn đáp án.`);return}const passed=score>=5;el('quizResult').classList.add('show');el('quizResult').innerHTML=`<strong>Kết quả: ${score}/6 — ${passed?'Đạt! 🎉':'Tiếp tục luyện tập!'}</strong><p>${passed?'Bạn đã mở khóa chứng nhận trải nghiệm LOGIQ. Nhập tên ở bên dưới để tạo.':'Hãy ôn lại các buổi học và thử sức lần nữa.'}</p>${review.length?`<small>Các câu cần xem lại: ${review.join(', ')}.</small>`:''}`;el('certInput').classList.toggle('show',passed);if(!passed){el('certificate').classList.remove('show');el('printControls').style.display='none'}el('quizResult').scrollIntoView({behavior:'smooth',block:'center'})});
     el('resetQuiz').addEventListener('click',()=>{el('quizForm').reset();el('quizResult').classList.remove('show');el('certInput').classList.remove('show');el('certificate').classList.remove('show');el('printControls').style.display='none';el('quizForm').scrollIntoView({behavior:'smooth',block:'start'})});
