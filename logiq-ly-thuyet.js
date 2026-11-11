@@ -23,6 +23,9 @@ function setup() {
   css.textContent = `
 #ly-thuyet{background:#eef4f0;scroll-margin-top:77px}
 #ly-thuyet[hidden]{display:none!important}
+#ly-thuyet .lt-toolbar{position:sticky;top:81px;z-index:20;display:flex;justify-content:flex-end;margin-bottom:8px;pointer-events:none}
+#ly-thuyet .lt-exit{pointer-events:auto;border:1px solid #d2e2d9;border-radius:12px;background:#fff;color:#13243a;font-weight:800;padding:11px 16px;box-shadow:0 7px 22px #13243a18;cursor:pointer}
+#ly-thuyet .lt-exit:hover{background:#e4f6ed;border-color:#0d8e84}
 #ly-thuyet .lt-shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;align-items:start}
 #ly-thuyet .lt-menu,#ly-thuyet .lt-panel{background:#fff;border:1px solid #e3e9e6;border-radius:22px;overflow:hidden;box-shadow:0 14px 35px #142a1d0a}
 #ly-thuyet .lt-menu{padding:16px;position:sticky;top:96px}
@@ -92,6 +95,7 @@ function setup() {
   area.hidden = true;
   area.setAttribute('aria-label','Nội dung lý thuyết của các buổi học');
   area.innerHTML = `<div class="wrap">
+      <div class="lt-toolbar"><button class="lt-exit" type="button" data-lt-exit aria-label="Thoát khỏi phần lý thuyết">✕ Thoát lý thuyết</button></div>
       <div class="section-heading"><span class="eyebrow">02 / HỌC LÝ THUYẾT</span>
       <h2>Hiểu bản chất. Tư duy độc lập.</h2>
       <p>Chọn một buổi học để đọc kiến thức, xem ví dụ và trả lời câu hỏi ôn tập trước khi thực hành.</p></div>
@@ -169,6 +173,12 @@ function chooseAnswer(qi,ai) {
   explain.hidden=false;
 }
 function onAreaClick(event) {
+  const exit=event.target.closest('[data-lt-exit]');
+  if (exit) {
+    area.hidden=true;
+    document.getElementById('lo-trinh').scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
   const tab=event.target.closest('[data-lt-session]');
   if (tab) {show(Number(tab.dataset.ltSession));return}
   const answer=event.target.closest('[data-lt-q]');
